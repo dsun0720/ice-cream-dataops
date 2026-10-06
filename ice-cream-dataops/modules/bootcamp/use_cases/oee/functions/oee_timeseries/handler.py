@@ -121,7 +121,7 @@ def process_site(client, lookback_minutes, site):
         status_node = f"NodeId({source_space}, {asset}:status)"
         planned_status_node = f"NodeId({source_space}, {asset}:planned_status)"
 
-        end = min([dp.timestamp[0] for dp in latest_dps if latest_dps and dp.timestamp], default=None)
+        end = min((int(dp.timestamp.timestamp() * 1000) for dp in latest_dps if dp.timestamp), default=None)
 
         if end:
             dps_df = client.time_series.data.retrieve_dataframe(
