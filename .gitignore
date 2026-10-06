@@ -169,3 +169,4 @@ totalenergies/modules/dap_module/functions/*/common
 totalenergies/modules/dap_module/functions/*/requirements.txt
 utils/sdk
 spec/
+**/build_info**
