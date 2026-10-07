@@ -3,7 +3,7 @@ from itertools import islice
 from timeit import default_timer
 
 from cognite.client import CogniteClient
-from cognite.client.data_classes import ExtractionPipelineRunWrite
+from cognite.client.data_classes import ExtractionPipelineRun
 from cognite.client.data_classes.data_modeling import NodeId, ViewId
 from cognite.client.data_classes.data_modeling.cdm.v1 import CogniteAsset, CogniteTimeSeries
 from cognite.client.data_classes.filters import Prefix, ContainsAny
@@ -76,7 +76,7 @@ def get_time_series_for_site(client: CogniteClient, site):
 
 
 def report_ext_pipe(client: CogniteClient, status, message=None):
-    ext_pipe_run = ExtractionPipelineRunWrite(
+    ext_pipe_run = ExtractionPipelineRun(
         extpipe_external_id="ep_icapi_datapoints",
         status=status,
         message=message
